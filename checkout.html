@@ -1,0 +1,388 @@
+[file name]: checkout.html
+[file content begin]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | ROUGE VÈRA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="perfume-bottle">
+                <div class="bottle"></div>
+                <div class="liquid"></div>
+            </div>
+            <h3 class="text-gold">ROUGE VÈRA</h3>
+            <p class="text-muted">Loading Checkout...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container flex-between">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-crown"></i>
+                <span>ROUGE VÈRA</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="shop.html" class="nav-link"><i class="fas fa-store"></i> Shop</a>
+                <a href="collections.html" class="nav-link"><i class="fas fa-star"></i> Collections</a>
+                <a href="admin-login.html" class="nav-link admin-access-link"><i class="fas fa-shield-alt"></i> Admin Login</a>
+                <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+            </div>
+
+            <div class="nav-icons">
+                <a href="login.html" class="nav-icon"><i class="fas fa-sign-in-alt"></i></a>
+                <a href="cart.html" class="nav-icon cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="shop.html" class="mobile-nav-link"><i class="fas fa-store"></i> Shop</a>
+            <a href="collections.html" class="mobile-nav-link"><i class="fas fa-star"></i> Collections</a>
+            <a href="admin-login.html" class="mobile-nav-link admin-access-link"><i class="fas fa-shield-alt"></i> Admin Login</a>
+            <a href="profile.html" class="mobile-nav-link"><i class="fas fa-user"></i> Profile</a>
+            <a href="cart.html" class="mobile-nav-link"><i class="fas fa-shopping-bag"></i> Cart</a>
+            <a href="login.html" class="mobile-nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </div>
+    </nav>
+
+    <!-- Checkout Header -->
+    <section class="shop-header">
+        <div class="container">
+            <div class="shop-header-content">
+                <h1>Secure <span class="text-gold">Checkout</span></h1>
+                <p class="text-muted">Complete your purchase with confidence</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px;">
+                    <a href="index.html" style="color: #FFD700;">Home</a>
+                    <i class="fas fa-chevron-right" style="color: #888;"></i>
+                    <a href="cart.html" style="color: #FFD700;">Cart</a>
+                    <i class="fas fa-chevron-right" style="color: #888;"></i>
+                    <span style="color: #ccc;">Checkout</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Steps -->
+    <section class="section" style="padding-top: 30px;">
+        <div class="container">
+            <div class="checkout-steps">
+                <div class="step active">
+                    <div class="step-number">1</div>
+                    <div style="color: #FFD700; font-weight: bold;">Cart</div>
+                </div>
+                <div class="step active">
+                    <div class="step-number">2</div>
+                    <div style="color: #FFD700; font-weight: bold;">Information</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div style="color: #ccc;">Shipping</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div style="color: #ccc;">Payment</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Content -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="checkout-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+                <!-- Left Column: Forms -->
+                <div>
+                    <!-- Customer Information -->
+                    <div style="background: #1a1a1a; border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.2); padding: 30px; margin-bottom: 20px;">
+                        <h2 style="color: #FFD700; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-user"></i> Contact Information
+                        </h2>
+                        
+                        <form id="checkoutForm">
+                            <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                                <div class="form-group">
+                                    <label style="display: block; margin-bottom: 8px; color: #FFD700;">First Name *</label>
+                                    <input type="text" required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                                </div>
+                                <div class="form-group">
+                                    <label style="display: block; margin-bottom: 8px; color: #FFD700;">Last Name *</label>
+                                    <input type="text" required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; color: #FFD700;">Email *</label>
+                                <input type="email" required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; color: #FFD700;">Phone Number *</label>
+                                <input type="tel" required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                            </div>
+                            
+                            <h3 style="color: #FFD700; margin: 30px 0 20px; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-map-marker-alt"></i> Shipping Address
+                            </h3>
+                            
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; color: #FFD700;">Address *</label>
+                                <input type="text" required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                            </div>
+                            
+                            <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                                <div class="form-group">
+                                    <label style="display: block; margin-bottom: 8px; color: #FFD700;">City *</label>
+                                    <input type="text" required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                                </div>
+                                <div class="form-group">
+                                    <label style="display: block; margin-bottom: 8px; color: #FFD700;">Zip Code *</label>
+                                    <input type="text" required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" style="margin-bottom: 30px;">
+                                <label style="display: block; margin-bottom: 8px; color: #FFD700;">Country *</label>
+                                <select required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                                    <option value="">Select Country</option>
+                                    <option value="US">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="DE">Germany</option>
+                                </select>
+                            </div>
+                            
+                            <div style="display: flex; gap: 15px;">
+                                <button type="button" class="btn btn-outline-gold" style="flex: 1;" onclick="window.history.back()">
+                                    <i class="fas fa-arrow-left"></i> Back to Cart
+                                </button>
+                                <button type="submit" class="btn btn-gold" style="flex: 2;">
+                                    Continue to Shipping <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Order Summary -->
+                <div>
+                    <div style="background: #1a1a1a; border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.2); padding: 25px; position: sticky; top: 100px;">
+                        <h2 style="color: #FFD700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-receipt"></i> Order Summary
+                        </h2>
+                        
+                        <div id="checkoutItems" style="margin-bottom: 20px; max-height: 300px; overflow-y: auto;">
+                            <!-- Items loaded via JavaScript -->
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span style="color: #ccc;">Subtotal</span>
+                                <span id="checkoutSubtotal" style="color: #FFD700;">₱0.00</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span style="color: #ccc;">Shipping</span>
+                                <span id="checkoutShipping" style="color: #FFD700;">₱100.00</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span style="color: #ccc;">Tax</span>
+                                <span id="checkoutTax" style="color: #FFD700;">₱0.00</span>
+                            </div>
+                            <div style="height: 1px; background: rgba(255, 215, 0, 0.2); margin: 15px 0;"></div>
+                            <div style="display: flex; justify-content: space-between; font-size: 1.2rem;">
+                                <span style="color: #fff;">Total</span>
+                                <span id="checkoutTotal" style="color: #FFD700; font-weight: bold;">₱0.00</span>
+                            </div>
+                        </div>
+                        
+                        <div style="background: rgba(255, 215, 0, 0.1); padding: 15px; border-radius: 6px; margin-top: 20px;">
+                            <h4 style="color: #FFD700; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-gift"></i> Shipping Estimate
+                            </h4>
+                            <p style="color: #ccc; font-size: 0.9rem; margin-bottom: 10px;">Standard: 3-5 business days</p>
+                            <p style="color: #ccc; font-size: 0.9rem;">Express: 1-2 business days (₱25)</p>
+                        </div>
+                        
+                        <div style="margin-top: 20px; text-align: center;">
+                            <p style="color: #888; font-size: 0.9rem;">
+                                <i class="fas fa-shield-alt"></i> 256-bit SSL Encryption
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-crown"></i>
+                        <span>ROUGE VÈRA</span>
+                    </a>
+                    <p class="text-muted">Secure luxury shopping</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Payment Methods</h4>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <i class="fab fa-cc-visa fa-2x" style="color: #888;"></i>
+                        <i class="fab fa-cc-mastercard fa-2x" style="color: #888;"></i>
+                        <i class="fab fa-cc-amex fa-2x" style="color: #888;"></i>
+                        <i class="fab fa-cc-paypal fa-2x" style="color: #888;"></i>
+                        <i class="fab fa-apple-pay fa-2x" style="color: #888;"></i>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Security</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-lock"></i> Secure Payments</li>
+                        <li><i class="fas fa-shield-alt"></i> Data Protection</li>
+                        <li><i class="fas fa-user-shield"></i> Privacy Guaranteed</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Need Help?</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> support@rougevera.com</li>
+                        <li><i class="fas fa-clock"></i> 24/7 Support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ROUGE VÈRA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button class="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price">₱0.00</span>
+            </div>
+            <div class="cart-actions">
+                <a href="cart.html" class="btn btn-black btn-block">View Cart</a>
+                <a href="checkout.html" class="btn btn-gold btn-block">Checkout</a>
+            </div>
+        </div>
+    </div>
+    <div class="cart-overlay"></div>
+
+    <script src="script.js"></script>
+    <script>
+        function loadCheckoutItems() {
+            const cart = JSON.parse(localStorage.getItem('prestigeBlissCart')) || [];
+            const container = document.getElementById('checkoutItems');
+            
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="color: #888; text-align: center;">Your cart is empty</p>';
+                return 0;
+            }
+            
+            let html = '';
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                html += `
+                    <div style="display: flex; align-items: center; gap: 15px; padding: 10px 0; border-bottom: 1px solid rgba(255, 215, 0, 0.1);">
+                        <div style="width: 60px; height: 60px; border-radius: 6px; overflow: hidden;">
+                            <img src="${item.image}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="color: #FFD700; font-weight: bold;">${item.name}</div>
+                            <div style="color: #888; font-size: 0.9rem;">Qty: ${item.quantity}</div>
+                        </div>
+                        <div style="color: #FFD700; font-weight: bold;">${CurrencySystem.formatPHP(itemTotal)}</div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            
+            // Update summary
+            const shipping = CONFIG.SHIPPING_FEE;
+            const tax = subtotal * CONFIG.TAX_RATE;
+            const total = subtotal + shipping + tax;
+            
+            document.getElementById('checkoutSubtotal').textContent = CurrencySystem.formatPHP(subtotal);
+            document.getElementById('checkoutShipping').textContent = CurrencySystem.formatPHP(shipping);
+            document.getElementById('checkoutTax').textContent = CurrencySystem.formatPHP(tax);
+            document.getElementById('checkoutTotal').textContent = CurrencySystem.formatPHP(total);
+            
+            return total;
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCheckoutItems();
+            
+            // Handle form submission
+            const checkoutForm = document.getElementById('checkoutForm');
+            checkoutForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                if (window.checkoutHandled) return;
+                
+                // Validate cart
+                const cart = JSON.parse(localStorage.getItem('prestigeBlissCart')) || [];
+                if (cart.length === 0) {
+                    window.showToast('Your cart is empty!', 'error');
+                    return;
+                }
+                
+                // Show success message
+                window.showToast('Order placed successfully!');
+                
+                // Clear cart
+                localStorage.removeItem('prestigeBlissCart');
+                window.cart = [];
+                updateCartCount();
+                
+                // Redirect to confirmation
+                setTimeout(() => {
+                    window.location.href = 'profile.html';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

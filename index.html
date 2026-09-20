@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROUGE VÈRA | Luxury Perfumes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="perfume-bottle">
+                <div class="bottle"></div>
+                <div class="liquid"></div>
+            </div>
+            <h3 class="text-gold">ROUGE VÈRA</h3>
+            <p class="text-muted">Loading Luxury...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container flex-between">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-crown"></i>
+                <span>ROUGE VÈRA</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                <a href="shop.html" class="nav-link"><i class="fas fa-store"></i> Shop</a>
+                <a href="collections.html" class="nav-link"><i class="fas fa-star"></i> Collections</a>
+                <a href="admin-login.html" class="nav-link admin-access-link"><i class="fas fa-shield-alt"></i> Admin Login</a>
+                <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+            </div>
+
+            <div class="nav-icons">
+                <div class="search-box">
+                    <input type="text" placeholder="Search perfumes..." class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <a href="login.html" class="nav-icon"><i class="fas fa-sign-in-alt"></i></a>
+                <a href="cart.html" class="nav-icon cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link active"><i class="fas fa-home"></i> Home</a>
+            <a href="shop.html" class="mobile-nav-link"><i class="fas fa-store"></i> Shop</a>
+            <a href="collections.html" class="mobile-nav-link"><i class="fas fa-star"></i> Collections</a>
+            <a href="admin-login.html" class="mobile-nav-link admin-access-link"><i class="fas fa-shield-alt"></i> Admin Login</a>
+            <a href="profile.html" class="mobile-nav-link"><i class="fas fa-user"></i> Profile</a>
+            <a href="cart.html" class="mobile-nav-link"><i class="fas fa-shopping-bag"></i> Cart</a>
+            <a href="login.html" class="mobile-nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Experience Eternal Elegance</h1>
+                <p class="hero-subtitle">Discover the art of fragrance with ROUGE VÈRA - where luxury meets soulful scents.</p>
+                <div class="hero-btns">
+                    <a href="shop.html" class="btn btn-gold btn-lg">Shop Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="#collections" class="btn btn-outline-gold btn-lg">Explore Collections</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <h2>Signature <span class="text-gold">Collection</span></h2>
+                    <p class="text-muted">Our most exquisite fragrances</p>
+                </div>
+                <div class="divider-gold"></div>
+            </div>
+
+            <div class="products-grid" id="featuredProducts">
+                <!-- Products loaded via JavaScript -->
+            </div>
+
+            <div class="text-center mt-50">
+                <a href="shop.html" class="btn btn-black btn-lg">View All Products <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections -->
+    <section class="section bg-black-dark" id="collections">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <h2>Our <span class="text-gold">Collections</span></h2>
+                    <p class="text-muted">Curated scent experiences for every occasion</p>
+                </div>
+                <div class="divider-gold"></div>
+            </div>
+
+            <div class="collections-grid">
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Signature">
+                    <div class="collection-overlay">
+                        <h3>Signature Collection</h3>
+                        <p>Timeless classics</p>
+                        <a href="collections.html" class="btn btn-outline-gold btn-sm">Explore</a>
+                    </div>
+                </div>
+
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1590736969958-65d5e7c5e867?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Limited">
+                    <div class="collection-overlay">
+                        <h3>Limited Editions</h3>
+                        <p>Exclusive releases</p>
+                        <a href="collections.html" class="btn btn-outline-gold btn-sm">Explore</a>
+                    </div>
+                </div>
+
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1543853125-2f9cc3d8e7cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Seasonal">
+                    <div class="collection-overlay">
+                        <h3>Seasonal Scents</h3>
+                        <p>For every season</p>
+                        <a href="collections.html" class="btn btn-outline-gold btn-sm">Explore</a>
+                    </div>
+                </div>
+
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1543853125-2f9cc3d8e7cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Unisex">
+                    <div class="collection-overlay">
+                        <h3>Unisex Fragrances</h3>
+                        <p>Beyond gender</p>
+                        <a href="collections.html" class="btn btn-outline-gold btn-sm">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section pattern-grid">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <h2>Join Our <span class="text-gold">Prestige Circle</span></h2>
+                    <p class="text-muted">Subscribe for exclusive launches and offers</p>
+                </div>
+                <div class="divider-gold"></div>
+            </div>
+
+            <div class="text-center">
+                <form class="newsletter-form" style="max-width: 500px; margin: 0 auto;">
+                    <div class="form-group" style="display: flex; gap: 10px;">
+                        <input type="email" placeholder="Your email address" class="form-control" required style="flex: 1;">
+                        <button type="submit" class="btn btn-gold">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-crown"></i>
+                        <span>ROUGE VÈRA</span>
+                    </a>
+                    <p class="text-muted">Crafting timeless fragrances since 2026.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">All Perfumes</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="shop.html">Best Sellers</a></li>
+                        <li><a href="shop.html">New Arrivals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Account</h4>
+                    <ul class="footer-links">
+                        <li><a href="profile.html">My Profile</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="login.html">Login/Register</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Luxury Avenue</li>
+                        <li><i class="fas fa-phone"></i> 0976 501 7737</li>
+                        <li><i class="fas fa-envelope"></i> contact@rougevera.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ROUGE VÈRA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+                        <li><a href="support.html"><i class="fas fa-circle-question"></i> Help & FAQs</a></li>
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button class="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price">₱0.00</span>
+            </div>
+            <div class="cart-actions">
+                <a href="cart.html" class="btn btn-black btn-block">View Cart</a>
+                <a href="checkout.html" class="btn btn-gold btn-block">Checkout</a>
+            </div>
+        </div>
+    </div>
+    <div class="cart-overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+    </script>
+</body>
+</html>

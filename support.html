@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support | ROUGE VÈRA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="perfume-bottle"><div class="bottle"></div><div class="liquid"></div></div>
+            <h3 class="text-gold">ROUGE VÈRA</h3>
+            <p class="text-muted">Loading Support...</p>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container flex-between">
+            <a href="index.html" class="nav-logo"><i class="fas fa-crown"></i><span>ROUGE VÈRA</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="shop.html" class="nav-link"><i class="fas fa-store"></i> Shop</a>
+                <a href="collections.html" class="nav-link"><i class="fas fa-star"></i> Collections</a>
+                <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+            </div>
+            <div class="nav-icons">
+                <a href="login.html" class="nav-icon"><i class="fas fa-sign-in-alt"></i></a>
+                <a href="cart.html" class="nav-icon cart-icon"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></a>
+                <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="shop.html" class="mobile-nav-link"><i class="fas fa-store"></i> Shop</a>
+            <a href="collections.html" class="mobile-nav-link"><i class="fas fa-star"></i> Collections</a>
+            <a href="profile.html" class="mobile-nav-link"><i class="fas fa-user"></i> Profile</a>
+            <a href="cart.html" class="mobile-nav-link"><i class="fas fa-shopping-bag"></i> Cart</a>
+            <a href="login.html" class="mobile-nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </div>
+    </nav>
+
+    <section class="shop-header">
+        <div class="container">
+            <div class="shop-header-content">
+                <span class="eyebrow"><i class="fas fa-sparkles"></i> Concierge care</span>
+                <h1>Help <span class="text-gold">Center</span></h1>
+                <p class="text-muted">Answers for your ROUGE VÈRA experience</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="support-intro">
+                <div class="support-intro-copy">
+                    <span class="section-kicker">How may we assist?</span>
+                    <h2>Find your answer <span class="text-gold">in a moment.</span></h2>
+                    <p class="text-muted">Search our care guide or open a conversation with your personal fragrance concierge.</p>
+                </div>
+                <div class="support-trust"><i class="fas fa-clock"></i><span><strong>Usually replies instantly</strong><small>Available around the clock</small></span></div>
+            </div>
+            <div class="support-search-wrap">
+                <div class="support-search">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <input id="faqSearch" type="search" placeholder="Search help topics..." aria-label="Search frequently asked questions" style="flex: 1;">
+                    <button id="faqSearchButton" class="btn btn-gold" aria-label="Search FAQs"><i class="fas fa-search"></i></button>
+                </div>
+                <p id="faqResult" class="text-muted" aria-live="polite">Browse common questions or search for an answer.</p>
+            </div>
+            <div id="faqList" class="faq-list"></div>
+
+            <div class="support-cta">
+                <div class="support-cta-icon"><i class="fas fa-headset"></i></div>
+                <div>
+                    <span class="section-kicker">Personal assistance</span>
+                    <h3>Still need help?</h3>
+                    <p>Chat with our automatic assistant or email contact@rougevera.com.</p>
+                </div>
+                <button class="btn btn-gold" onclick="document.querySelector('.support-toggle')?.click()"><i class="fas fa-headset"></i> Start a chat</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom"><p>&copy; 2026 ROUGE VÈRA. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const list = document.getElementById('faqList');
+            const search = document.getElementById('faqSearch');
+            const result = document.getElementById('faqResult');
+            const render = () => {
+                const query = search.value.trim().toLowerCase();
+                const matches = CustomerSupport.faqs.filter(faq => `${faq.question} ${faq.answer} ${faq.keywords || ''}`.toLowerCase().includes(query));
+                result.textContent = query ? `${matches.length} answer${matches.length === 1 ? '' : 's'} found` : 'Browse common questions or search for an answer.';
+                list.innerHTML = matches.length ? matches.map((faq, index) => `
+                    <article class="faq-item">
+                        <button class="faq-question" aria-expanded="false" data-index="${index}">${faq.question}<i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer" hidden>${faq.answer}</div>
+                    </article>`).join('') : '<div style="text-align: center; padding: 40px; color: #888;">No matching help topics. Open the support chat for assistance.</div>';
+                list.querySelectorAll('.faq-question').forEach(button => button.addEventListener('click', () => {
+                    const answer = button.nextElementSibling;
+                    const expanded = !answer.hidden;
+                    answer.hidden = expanded;
+                    button.setAttribute('aria-expanded', String(!expanded));
+                    button.querySelector('i').className = expanded ? 'fas fa-chevron-down' : 'fas fa-chevron-up';
+                }));
+            };
+            search.addEventListener('input', render);
+            document.getElementById('faqSearchButton').addEventListener('click', render);
+            render();
+        });
+    </script>
+</body>
+</html>

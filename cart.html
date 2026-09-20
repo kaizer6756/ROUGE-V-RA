@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | ROUGE VÈRA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="perfume-bottle">
+                <div class="bottle"></div>
+                <div class="liquid"></div>
+            </div>
+            <h3 class="text-gold">ROUGE VÈRA</h3>
+            <p class="text-muted">Loading Cart...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container flex-between">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-crown"></i>
+                <span>ROUGE VÈRA</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="shop.html" class="nav-link"><i class="fas fa-store"></i> Shop</a>
+                <a href="collections.html" class="nav-link"><i class="fas fa-star"></i> Collections</a>
+                <a href="admin-login.html" class="nav-link admin-access-link"><i class="fas fa-shield-alt"></i> Admin Login</a>
+                <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+            </div>
+
+            <div class="nav-icons">
+                <a href="login.html" class="nav-icon"><i class="fas fa-sign-in-alt"></i></a>
+                <a href="cart.html" class="nav-icon cart-icon active">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="shop.html" class="mobile-nav-link"><i class="fas fa-store"></i> Shop</a>
+            <a href="collections.html" class="mobile-nav-link"><i class="fas fa-star"></i> Collections</a>
+            <a href="admin-login.html" class="mobile-nav-link admin-access-link"><i class="fas fa-shield-alt"></i> Admin Login</a>
+            <a href="profile.html" class="mobile-nav-link"><i class="fas fa-user"></i> Profile</a>
+            <a href="cart.html" class="mobile-nav-link active"><i class="fas fa-shopping-bag"></i> Cart</a>
+            <a href="login.html" class="mobile-nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </div>
+    </nav>
+
+    <!-- Cart Header -->
+    <section class="shop-header">
+        <div class="container">
+            <div class="shop-header-content">
+                <h1>Shopping <span class="text-gold">Cart</span></h1>
+                <p class="text-muted">Review your luxury selections</p>
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Cart</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Content -->
+    <section class="section">
+        <div class="container">
+            <div class="cart-grid">
+                <!-- Cart Items -->
+                <div class="cart-items-container">
+                    <div class="cart-items-header">
+                        <h2><i class="fas fa-shopping-bag"></i> Your Items</h2>
+                    </div>
+                    
+                    <div id="cartItemsContainer">
+                        <!-- Cart items loaded via JavaScript -->
+                    </div>
+                    
+                    <div id="emptyCartMessage" class="empty-cart">
+                        <i class="fas fa-shopping-bag fa-4x"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Looks like you haven't added any perfumes to your cart yet.</p>
+                        <a href="shop.html" class="btn btn-gold">
+                            <i class="fas fa-store"></i> Continue Shopping
+                        </a>
+                    </div>
+                    
+                    <!-- Cart Actions -->
+                    <div class="cart-actions">
+                        <a href="shop.html" class="btn btn-outline-gold">
+                            <i class="fas fa-arrow-left"></i> Continue Shopping
+                        </a>
+                        <button class="btn btn-black" onclick="clearCart()">
+                            <i class="fas fa-trash"></i> Clear Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h2><i class="fas fa-receipt"></i> Order Summary</h2>
+                    
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="cartSubtotal">₱0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span id="cartShipping">₱100.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax (12%)</span>
+                            <span id="cartTax">₱0.00</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span id="cartTotal">₱0.00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-section">
+                        <label>Promo Code or Voucher</label>
+                        <div class="promo-input">
+                            <input type="text" placeholder="Enter code" id="promoCode">
+                            <button class="btn btn-gold" onclick="applyPromoCode()">Apply</button>
+                        </div>
+                        <div style="margin-top: 12px; color: #ccc; font-size: 0.9rem;">
+                            <p style="margin-bottom: 8px; color: #FFD700;">Available vouchers:</p>
+                            <ul id="promoList" style="padding-left: 20px; margin: 0; line-height: 1.8;"></ul>
+                        </div>
+                    </div>
+
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Discount</span>
+                            <span id="cartDiscount">₱0.00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-section">
+                        <a href="checkout.html" class="btn btn-gold btn-block">
+                            <i class="fas fa-lock"></i> Proceed to Checkout
+                        </a>
+                        <p class="secure-checkout">
+                            <i class="fas fa-shield-alt"></i> Secure checkout
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-crown"></i>
+                        <span>ROUGE VÈRA</span>
+                    </a>
+                    <p class="text-muted">Your luxury fragrance destination</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Shopping</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">All Perfumes</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="shop.html">Best Sellers</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="policies.html">Policies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="policies.html">Shipping Policy</a></li>
+                        <li><a href="policies.html">Returns & Exchanges</a></li>
+                        <li><a href="support.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Luxury Avenue</li>
+                        <li><i class="fas fa-phone"></i> 0976 501 7737</li>
+                        <li><i class="fas fa-envelope"></i> contact@rougevera.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ROUGE VÈRA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button class="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price">₱0.00</span>
+            </div>
+            <div class="cart-actions">
+                <a href="cart.html" class="btn btn-black btn-block">View Cart</a>
+                <a href="checkout.html" class="btn btn-gold btn-block">Checkout</a>
+            </div>
+        </div>
+    </div>
+    <div class="cart-overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

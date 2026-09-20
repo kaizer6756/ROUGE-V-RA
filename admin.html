@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | ROUGE VÈRA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="perfume-bottle">
+                <div class="bottle"></div>
+                <div class="liquid"></div>
+            </div>
+            <h3 class="text-gold">ROUGE VÈRA</h3>
+            <p class="text-muted">Loading Admin...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container flex-between">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-crown"></i>
+                <span>ROUGE VÈRA</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="shop.html" class="nav-link"><i class="fas fa-store"></i> Shop</a>
+                <a href="collections.html" class="nav-link"><i class="fas fa-star"></i> Collections</a>
+                <a href="admin.html" class="nav-link active admin-access-link"><i class="fas fa-plus-circle"></i> Add Product</a>
+                <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+            </div>
+
+            <div class="nav-icons">
+                <a href="login.html" class="nav-icon"><i class="fas fa-sign-in-alt"></i></a>
+                <a href="cart.html" class="nav-icon cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="shop.html" class="mobile-nav-link"><i class="fas fa-store"></i> Shop</a>
+            <a href="collections.html" class="mobile-nav-link"><i class="fas fa-star"></i> Collections</a>
+            <a href="admin.html" class="mobile-nav-link active admin-access-link"><i class="fas fa-plus-circle"></i> Add Product</a>
+            <a href="profile.html" class="mobile-nav-link"><i class="fas fa-user"></i> Profile</a>
+            <a href="cart.html" class="mobile-nav-link"><i class="fas fa-shopping-bag"></i> Cart</a>
+            <a href="login.html" class="mobile-nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </div>
+    </nav>
+
+    <!-- Admin Header -->
+    <section class="shop-header">
+        <div class="container">
+            <div class="shop-header-content">
+                <h1>Admin <span class="text-gold">Dashboard</span></h1>
+                <p class="text-muted">Manage your perfume store</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px;">
+                    <a href="index.html" style="color: #FFD700;">Home</a>
+                    <i class="fas fa-chevron-right" style="color: #888;"></i>
+                    <span style="color: #ccc;">Admin</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Content -->
+    <section class="section">
+        <div class="container">
+            <div class="admin-grid">
+                <!-- Sidebar -->
+                <aside style="width: 250px;">
+                    <div style="background: #1a1a1a; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255, 215, 0, 0.2);">
+                        <a href="#" class="admin-menu-item active" style="display: flex; align-items: center; gap: 15px; padding: 15px 20px; color: #FFD700; text-decoration: none; border-bottom: 1px solid rgba(255, 215, 0, 0.1);">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Add Product</span>
+                        </a>
+                        <a href="#" class="admin-menu-item" style="display: flex; align-items: center; gap: 15px; padding: 15px 20px; color: #ccc; text-decoration: none; border-bottom: 1px solid rgba(255, 215, 0, 0.1);">
+                            <i class="fas fa-box"></i>
+                            <span>Manage Products</span>
+                        </a>
+                        <a href="#" class="admin-menu-item admin-orders-link" onclick="PageController.showAdminOrders(); return false;" style="display: flex; align-items: center; gap: 15px; padding: 15px 20px; color: #ccc; text-decoration: none; border-bottom: 1px solid rgba(255, 215, 0, 0.1);">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Orders</span>
+                            <span class="order-count" style="margin-left: auto; background: #FFD700; color: black; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem;">0</span>
+                        </a>
+                        <a href="profile.html" class="admin-menu-item" style="display: flex; align-items: center; gap: 15px; padding: 15px 20px; color: #ccc; text-decoration: none;">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main style="flex: 1;">
+                    <div style="margin-bottom: 30px;">
+                        <button class="admin-tab active" style="padding: 10px 20px; background: rgba(255, 215, 0, 0.1); border: 1px solid #FFD700; color: #FFD700; border-radius: 4px; cursor: pointer;">Add Product</button>
+                        <button class="admin-tab" style="padding: 10px 20px; background: #1a1a1a; border: 1px solid rgba(255, 215, 0, 0.2); color: #ccc; border-radius: 4px; cursor: pointer; margin-left: 10px;">Manage Products</button>
+                    </div>
+
+                    <!-- Add Product Form -->
+                    <div class="product-form">
+                        <form id="addProductForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="productName">Product Name *</label>
+                                    <input type="text" id="productName" name="name" required placeholder="e.g., Noir Éternel">
+                                </div>
+                                <div class="form-group">
+                                    <label for="productCategory">Category *</label>
+                                    <select id="productCategory" name="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="signature">Signature Collection</option>
+                                        <option value="limited">Limited Editions</option>
+                                        <option value="seasonal">Seasonal Scents</option>
+                                        <option value="unisex">Unisex Fragrances</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="productPrice10ml">10ml Price *</label>
+                                    <input type="number" id="productPrice10ml" name="price10ml" required min="0" step="0.01" placeholder="99.00">
+                                </div>
+                                <div class="form-group">
+                                    <label for="productPrice30ml">30ml Price *</label>
+                                    <input type="number" id="productPrice30ml" name="price30ml" required min="0" step="0.01" placeholder="190.00">
+                                </div>
+                                <div class="form-group">
+                                    <label for="productPrice50ml">50ml Price *</label>
+                                    <input type="number" id="productPrice50ml" name="price50ml" required min="350" max="400" step="0.01" placeholder="399.00">
+                                </div>
+                                <div class="form-group">
+                                    <label for="productStock">Stock Quantity *</label>
+                                    <input type="number" id="productStock" name="stock" required min="0" value="100">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productDescription">Description *</label>
+                                <textarea id="productDescription" name="description" rows="4" required placeholder="Describe the fragrance..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productImage">Image URL</label>
+                                <input type="text" id="productImage" name="image" placeholder="https://images.unsplash.com/photo-...">
+                            </div>
+
+                            <div class="form-group" style="display: flex; gap: 20px;">
+                                <label style="display: flex; align-items: center; gap: 8px;">
+                                    <input type="checkbox" name="featured">
+                                    <span>Featured Product</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 8px;">
+                                    <input type="checkbox" name="bestSeller">
+                                    <span>Best Seller</span>
+                                </label>
+                            </div>
+
+                            <div class="form-actions" style="display: flex; gap: 15px; margin-top: 30px;">
+                                <button type="submit" class="btn btn-gold">
+                                    <i class="fas fa-plus-circle"></i> Add Product
+                                </button>
+                                <button type="reset" class="btn btn-outline-gold">Reset Form</button>
+                            </div>
+                        </form>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-crown"></i>
+                        <span>ROUGE VÈRA</span>
+                    </a>
+                    <p class="text-muted">Admin Panel - Manage your store</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Admin</h4>
+                    <ul class="footer-links">
+                        <li><a href="admin.html">Dashboard</a></li>
+                        <li><a href="admin.html">Add Product</a></li>
+                        <li><a href="admin.html">Manage Products</a></li>
+                        <li><a href="admin.html">Orders</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Store</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">View Shop</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="index.html">Home Page</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Support</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-question-circle"></i> Help Center</li>
+                        <li><i class="fas fa-book"></i> Documentation</li>
+                        <li><i class="fas fa-headset"></i> 24/7 Support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ROUGE VÈRA Admin</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button class="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price">₱0.00</span>
+            </div>
+            <div class="cart-actions">
+                <a href="cart.html" class="btn btn-black btn-block">View Cart</a>
+                <a href="checkout.html" class="btn btn-gold btn-block">Checkout</a>
+            </div>
+        </div>
+    </div>
+    <div class="cart-overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

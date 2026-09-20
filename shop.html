@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | ROUGE VÈRA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="perfume-bottle">
+                <div class="bottle"></div>
+                <div class="liquid"></div>
+            </div>
+            <h3 class="text-gold">ROUGE VÈRA</h3>
+            <p class="text-muted">Loading Shop...</p>
+        </div>
+    </div>
+
+    <!-- Navigation (Same as index.html) -->
+    <nav class="navbar">
+        <div class="container flex-between">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-crown"></i>
+                <span>ROUGE VÈRA</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="shop.html" class="nav-link active"><i class="fas fa-store"></i> Shop</a>
+                <a href="collections.html" class="nav-link"><i class="fas fa-star"></i> Collections</a>
+                <a href="admin-login.html" class="nav-link admin-access-link"><i class="fas fa-shield-alt"></i> Admin Login</a>
+                <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+            </div>
+
+            <div class="nav-icons">
+                <div class="search-box">
+                    <input type="text" placeholder="Search perfumes..." class="search-input" id="shopSearch">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <a href="login.html" class="nav-icon"><i class="fas fa-sign-in-alt"></i></a>
+                <a href="cart.html" class="nav-icon cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="shop.html" class="mobile-nav-link active"><i class="fas fa-store"></i> Shop</a>
+            <a href="collections.html" class="mobile-nav-link"><i class="fas fa-star"></i> Collections</a>
+            <a href="admin-login.html" class="mobile-nav-link admin-access-link"><i class="fas fa-shield-alt"></i> Admin Login</a>
+            <a href="profile.html" class="mobile-nav-link"><i class="fas fa-user"></i> Profile</a>
+            <a href="cart.html" class="mobile-nav-link"><i class="fas fa-shopping-bag"></i> Cart</a>
+            <a href="login.html" class="mobile-nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </div>
+    </nav>
+
+    <!-- Shop Header -->
+    <section class="shop-header">
+        <div class="container">
+            <div class="shop-header-content">
+                <h1>Shop <span class="text-gold">All Perfumes</span></h1>
+                <p class="text-muted">Discover our complete collection of luxury fragrances</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px;">
+                    <a href="index.html" style="color: #FFD700;">Home</a>
+                    <i class="fas fa-chevron-right" style="color: #888;"></i>
+                    <span style="color: #ccc;">Shop</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Content -->
+    <section class="section">
+        <div class="container">
+            <div class="shop-grid">
+                <!-- Sidebar -->
+                <aside class="shop-sidebar">
+                    <div class="filter-card">
+                        <h3 class="filter-title">Categories</h3>
+                        <ul class="filter-list">
+                            <li><a href="#" class="filter-item active" data-category="all">All Perfumes</a></li>
+                            <li><a href="#" class="filter-item" data-category="signature">Signature</a></li>
+                            <li><a href="#" class="filter-item" data-category="limited">Limited Editions</a></li>
+                            <li><a href="#" class="filter-item" data-category="seasonal">Seasonal</a></li>
+                            <li><a href="#" class="filter-item" data-category="unisex">Unisex</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-card">
+                        <h3 class="filter-title">Price Range</h3>
+                        <div class="price-range">
+                            <input type="range" min="99" max="400" value="400" class="price-slider" id="priceRange">
+                            <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                                <span style="color: #888;">₱99</span>
+                                <span style="color: #888;">₱400</span>
+                            </div>
+                            <div style="text-align: center; padding: 10px; background: rgba(255, 215, 0, 0.1); border-radius: 4px; margin-top: 10px;">
+                                <span id="currentPrice" style="color: #FFD700; font-weight: bold;">Up to ₱400</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-gold btn-block" style="margin-top: 20px;">Apply Filters</button>
+                </aside>
+
+                <!-- Main Products -->
+                <main style="flex: 1;">
+                    <div class="shop-toolbar">
+                        <div>
+                            <span id="productCount">4 Products</span>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="view-btn active" data-view="grid" style="width: 40px; height: 40px; background: #1a1a1a; border: 1px solid #FFD700; color: #FFD700; border-radius: 4px; cursor: pointer;">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="view-btn" data-view="list" style="width: 40px; height: 40px; background: #1a1a1a; border: 1px solid rgba(255, 215, 0, 0.2); color: #888; border-radius: 4px; cursor: pointer;">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="products-grid" id="productsContainer">
+                        <!-- Products loaded via JavaScript -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-crown"></i>
+                        <span>ROUGE VÈRA</span>
+                    </a>
+                    <p class="text-muted">Crafting timeless fragrances since 2026.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">All Perfumes</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="shop.html">Best Sellers</a></li>
+                        <li><a href="shop.html">New Arrivals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Account</h4>
+                    <ul class="footer-links">
+                        <li><a href="profile.html">My Profile</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="login.html">Login/Register</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Luxury Avenue</li>
+                        <li><i class="fas fa-phone"></i>097650177737</li>
+                        <li><i class="fas fa-envelope"></i> contact@rougevera.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ROUGE VÈRA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button class="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price">₱0.00</span>
+            </div>
+            <div class="cart-actions">
+                <a href="cart.html" class="btn btn-black btn-block">View Cart</a>
+                <a href="checkout.html" class="btn btn-gold btn-block">Checkout</a>
+            </div>
+        </div>
+    </div>
+    <div class="cart-overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

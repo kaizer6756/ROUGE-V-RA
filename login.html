@@ -1,0 +1,329 @@
+[file name]: login.html
+[file content begin]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | ROUGE VÈRA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="perfume-bottle">
+                <div class="bottle"></div>
+                <div class="liquid"></div>
+            </div>
+            <h3 class="text-gold">ROUGE VÈRA</h3>
+            <p class="text-muted">Loading Authentication...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container flex-between">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-crown"></i>
+                <span>ROUGE VÈRA</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="shop.html" class="nav-link"><i class="fas fa-store"></i> Shop</a>
+                <a href="collections.html" class="nav-link"><i class="fas fa-star"></i> Collections</a>
+                <a href="admin-login.html" class="nav-link admin-access-link"><i class="fas fa-shield-alt"></i> Admin Login</a>
+                <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+            </div>
+
+            <div class="nav-icons">
+                <a href="login.html" class="nav-icon active"><i class="fas fa-sign-in-alt"></i></a>
+                <a href="cart.html" class="nav-icon cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="shop.html" class="mobile-nav-link"><i class="fas fa-store"></i> Shop</a>
+            <a href="collections.html" class="mobile-nav-link"><i class="fas fa-star"></i> Collections</a>
+            <a href="admin-login.html" class="mobile-nav-link admin-access-link"><i class="fas fa-shield-alt"></i> Admin Login</a>
+            <a href="profile.html" class="mobile-nav-link"><i class="fas fa-user"></i> Profile</a>
+            <a href="cart.html" class="mobile-nav-link"><i class="fas fa-shopping-bag"></i> Cart</a>
+            <a href="login.html" class="mobile-nav-link active"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </div>
+    </nav>
+
+    <!-- Login Header -->
+    <section class="shop-header">
+        <div class="container">
+            <div class="shop-header-content">
+                <h1>Welcome <span class="text-gold">Back</span></h1>
+                <p class="text-muted">Sign in to your account</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px;">
+                    <a href="index.html" style="color: #FFD700;">Home</a>
+                    <i class="fas fa-chevron-right" style="color: #888;"></i>
+                    <span style="color: #ccc;">Login</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Content -->
+    <section class="section">
+        <div class="container">
+            <div class="login-container" style="max-width: 400px; margin: 0 auto;">
+                <div style="background: #1a1a1a; padding: 40px; border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.2);">
+                    <!-- Login Form -->
+                    <form id="loginForm" style="margin-bottom: 30px;">
+                        <h2 style="color: #FFD700; text-align: center; margin-bottom: 30px;">Sign In</h2>
+                        
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="loginEmail" style="display: block; margin-bottom: 8px; color: #FFD700;">Email</label>
+                            <input type="email" id="loginEmail" placeholder="your@email.com" required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                        </div>
+                        
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="loginPassword" style="display: block; margin-bottom: 8px; color: #FFD700;">Password</label>
+                            <input type="password" id="loginPassword" placeholder="••••••••" required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                            <label style="display: flex; align-items: center; gap: 8px; color: #ccc;">
+                                <input type="checkbox">
+                                <span>Remember me</span>
+                            </label>
+                            <a href="#" style="color: #FFD700; text-decoration: none;" onclick="window.showToast('Password reset link sent!')">Forgot Password?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-gold" style="width: 100%; padding: 15px;">
+                            <i class="fas fa-sign-in-alt"></i> Sign In
+                        </button>
+                    </form>
+                    
+                    <!-- Register Form (Hidden by default) -->
+                    <form id="registerForm" style="display: none; margin-bottom: 30px;">
+                        <h2 style="color: #FFD700; text-align: center; margin-bottom: 30px;">Create Account</h2>
+                        
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="registerName" style="display: block; margin-bottom: 8px; color: #FFD700;">Full Name</label>
+                            <input type="text" id="registerName" placeholder="John Doe" required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                        </div>
+                        
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="registerEmail" style="display: block; margin-bottom: 8px; color: #FFD700;">Email</label>
+                            <input type="email" id="registerEmail" placeholder="your@email.com" required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                        </div>
+                        
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="registerPassword" style="display: block; margin-bottom: 8px; color: #FFD700;">Password</label>
+                            <input type="password" id="registerPassword" placeholder="••••••••" required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                        </div>
+                        
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="registerConfirmPassword" style="display: block; margin-bottom: 8px; color: #FFD700;">Confirm Password</label>
+                            <input type="password" id="registerConfirmPassword" placeholder="••••••••" required style="width: 100%; padding: 12px; background: #0a0a0a; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 4px; color: white;">
+                        </div>
+                        
+                        <div style="margin-bottom: 25px;">
+                            <label style="display: flex; align-items: flex-start; gap: 8px; color: #ccc;">
+                                <input type="checkbox" required style="margin-top: 4px;">
+                                <span>I agree to the <a href="terms.html" style="color: #FFD700;">Terms & Conditions</a> and <a href="policies.html" style="color: #FFD700;">Privacy Policy</a></span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-gold" style="width: 100%; padding: 15px;">
+                            <i class="fas fa-user-plus"></i> Create Account
+                        </button>
+                    </form>
+                    
+                    <div style="text-align: center;">
+                        <p style="color: #888; margin-bottom: 20px;">
+                            <span id="toggleLoginText">Don't have an account?</span>
+                            <a href="#" id="toggleLoginLink" style="color: #FFD700; text-decoration: none; margin-left: 5px;">Sign Up</a>
+                        </p>
+                        
+                        <div style="display: flex; align-items: center; gap: 15px; margin: 25px 0;">
+                            <div style="flex: 1; height: 1px; background: rgba(255, 215, 0, 0.2);"></div>
+                            <span style="color: #888;">Or continue with</span>
+                            <div style="flex: 1; height: 1px; background: rgba(255, 215, 0, 0.2);"></div>
+                        </div>
+                        
+                        <div style="display: flex; gap: 15px; justify-content: center;">
+                            <button class="btn btn-black" style="flex: 1; padding: 12px;" onclick="window.showToast('Google sign-in coming soon!')">
+                                <i class="fab fa-google"></i> Google
+                            </button>
+                            <button class="btn btn-black" style="flex: 1; padding: 12px;" onclick="window.showToast('Facebook sign-in coming soon!')">
+                                <i class="fab fa-facebook"></i> Facebook
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-crown"></i>
+                        <span>ROUGE VÈRA</span>
+                    </a>
+                    <p class="text-muted">Your gateway to luxury fragrances</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Account</h4>
+                    <ul class="footer-links">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="login.html">Register</a></li>
+                        <li><a href="profile.html">My Profile</a></li>
+                        <li><a href="profile.html">Orders</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="admin.html">Admin</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 style="color: #FFD700; margin-bottom: 20px;">Need Help?</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-question-circle"></i> Help Center</li>
+                        <li><i class="fas fa-shipping-fast"></i> Shipping Info</li>
+                        <li><i class="fas fa-exchange-alt"></i> Returns</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ROUGE VÈRA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+            <button class="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price">₱0.00</span>
+            </div>
+            <div class="cart-actions">
+                <a href="cart.html" class="btn btn-black btn-block">View Cart</a>
+                <a href="checkout.html" class="btn btn-gold btn-block">Checkout</a>
+            </div>
+        </div>
+    </div>
+    <div class="cart-overlay"></div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const toggleLink = document.getElementById('toggleLoginLink');
+            const toggleText = document.getElementById('toggleLoginText');
+            
+            let showingLogin = true;
+            
+            toggleLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (showingLogin) {
+                    loginForm.style.display = 'none';
+                    registerForm.style.display = 'block';
+                    toggleLink.textContent = 'Sign In';
+                    toggleText.textContent = 'Already have an account?';
+                } else {
+                    registerForm.style.display = 'none';
+                    loginForm.style.display = 'block';
+                    toggleLink.textContent = 'Sign Up';
+                    toggleText.textContent = 'Don\'t have an account?';
+                }
+                
+                showingLogin = !showingLogin;
+            });
+            
+            // Login form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+                
+                if (email && password) {
+                    // Save user to localStorage
+                    localStorage.setItem('prestigeBlissUser', JSON.stringify({
+                        name: email.split('@')[0],
+                        email: email,
+                        isLoggedIn: true,
+                        memberSince: new Date().toISOString()
+                    }));
+                    
+                    window.showToast('Login successful!');
+                    setTimeout(() => {
+                        window.location.href = 'profile.html';
+                    }, 1500);
+                }
+            });
+            
+            // Register form submission
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('registerName').value;
+                const email = document.getElementById('registerEmail').value;
+                const password = document.getElementById('registerPassword').value;
+                const confirmPassword = document.getElementById('registerConfirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    window.showToast('Passwords do not match!', 'error');
+                    return;
+                }
+                
+                if (name && email && password) {
+                    // Save user to localStorage
+                    localStorage.setItem('prestigeBlissUser', JSON.stringify({
+                        name: name,
+                        email: email,
+                        isLoggedIn: true,
+                        memberSince: new Date().toISOString()
+                    }));
+                    
+                    window.showToast('Account created successfully!');
+                    setTimeout(() => {
+                        window.location.href = 'profile.html';
+                    }, 1500);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
