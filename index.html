@@ -77,8 +77,40 @@
                 <p class="hero-subtitle">Discover the art of fragrance with ROUGE VÈRA - where luxury meets soulful scents.</p>
                 <div class="hero-btns">
                     <a href="shop.html" class="btn btn-gold btn-lg">Shop Now <i class="fas fa-arrow-right"></i></a>
-                    <a href="#collections" class="btn btn-outline-gold btn-lg">Explore Collections</a>
+                    <a href="#fragrance-quiz" class="btn btn-outline-gold btn-lg">Find Your Fragrance <i class="fas fa-sparkles"></i></a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fragrance Finder -->
+    <section class="section fragrance-finder-section" id="fragrance-quiz">
+        <div class="container">
+            <div class="fragrance-finder-heading">
+                <p class="finder-eyebrow">A personal scent consultation</p>
+                <h2>Find the fragrance <span class="text-gold">that feels like you.</span></h2>
+                <p>Three quick choices. A shortlist made for your mood.</p>
+            </div>
+
+            <div class="fragrance-quiz" id="fragranceQuiz">
+                <div class="quiz-progress" aria-label="Quiz progress">
+                    <span id="quizProgressLabel">01 / 03</span>
+                    <div class="quiz-progress-track"><span id="quizProgressBar"></span></div>
+                </div>
+                <form id="fragranceQuizForm">
+                    <fieldset class="quiz-question" id="quizQuestion" aria-live="polite"></fieldset>
+                    <div class="quiz-controls">
+                        <button class="btn btn-outline-gold" id="quizBack" type="button" hidden><i class="fas fa-arrow-left"></i> Back</button>
+                        <button class="btn btn-gold" id="quizNext" type="button" disabled>Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </form>
+                <div class="quiz-results" id="quizResults" aria-live="polite" hidden></div>
+            </div>
+
+            <div class="finder-promises" aria-label="Shopping benefits">
+                <div><i class="fas fa-flask"></i><span><strong>Start small</strong><small>Explore 10ml, 30ml, and 50ml</small></span></div>
+                <div><i class="fas fa-heart"></i><span><strong>Keep your favorites</strong><small>Save scents to your wishlist</small></span></div>
+                <div><i class="fas fa-comments"></i><span><strong>Need a hand?</strong><small><a href="support.html">Visit fragrance support</a></small></span></div>
             </div>
         </div>
     </section>
